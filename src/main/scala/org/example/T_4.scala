@@ -23,7 +23,7 @@ object T_4 {
 
 
 
-    spark.sql(
+   /* spark.sql(
       """SELECT distance, origin, destination
         |FROM us_delay_flights_tbl
         |WHERE distance > 1000
@@ -116,7 +116,7 @@ object T_4 {
 
     // In Scala
     val usFlightsDF = spark.sql("SELECT * FROM us_delay_flights_tbl")
-    val usFlightsDF2 = spark.table("us_delay_flights_tbl")
+    val usFlightsDF2 = spark.table("us_delay_flights_tbl")*/
 
 
   }
