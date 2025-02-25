@@ -56,7 +56,14 @@ object App {
 
     //---------------------------------------------------------------------------------------------
 
-    T_5.ej1(spark)
+    val file = """/databricks-datasets/learning-spark-v2/flights/summary-
+ data/parquet/2010-summary.parquet"""
+
+    T_4.ej2(spark, file )
+
+    //--------------------------------------------------------------------------------------------
+
+    //T_5.ej1(spark)
 
 
 
