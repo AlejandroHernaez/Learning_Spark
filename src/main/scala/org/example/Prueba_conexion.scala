@@ -3,7 +3,7 @@ import org.apache.spark.sql.{SparkSession, DataFrame}
 import java.util.Properties
 
 
-  object PostgresConnection {
+  object Prueba_conexion {
 
     def main(args: Array[String]): Unit = {
       // Crear una sesión de Spark
