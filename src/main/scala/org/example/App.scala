@@ -1,6 +1,7 @@
 package org.example  // Define el paquete del programa para organizar el código
 
-import org.apache.spark.sql.SparkSession  // Importa SparkSession, la entrada principal para Spark
+import org.apache.spark.sql.SparkSession
+// Importa SparkSession, la entrada principal para Spark
 
 // Definimos el objeto `App`, que contiene la función principal del programa
 object App {
@@ -64,7 +65,9 @@ object App {
 
    // T_5.ej1(spark)
 
-    T_5.ej2(spark)
+    //T_5.ej2(spark)
+
+    T_5.ej3(spark)
 
 
 

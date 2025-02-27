@@ -1,6 +1,7 @@
 package org.example
 
 import org.apache.spark.sql.SparkSession
+import java.util.Properties
 
 
 object T_5 {
@@ -71,8 +72,7 @@ object T_5 {
 
     // Ejecutar el JOIN en Spark SQL
     val sql_query = spark.sql(
-      """
-      SELECT e.id, e.name, d.department
+      """SELECT e.id, e.name, d.department
       FROM employees e
       INNER JOIN departments d ON e.id = d.id
       """
@@ -81,6 +81,27 @@ object T_5 {
     // Mostrar resultados
     sql_query.show()
   }
+  def ej3(spark: SparkSession): Unit = {
+    // Cargar los datos en un DataFrame (esto es solo un ejemplo)
+    val departureDelays = spark.read.option("header", "true")
+      .csv("path_to_your_csv_file") // Cambia esta ruta por la de tus datos
+
+    // Crear vista temporal de departureDelays
+    departureDelays.createOrReplaceTempView("departureDelays")
+
+    // Ejecutar la consulta en SQL sobre la vista temporal
+    val result = spark.sql("""
+    SELECT origin, destination, SUM(delay) AS TotalDelays
+    FROM departureDelays
+    WHERE origin IN ('SEA', 'SFO', 'JFK')
+    AND destination IN ('SEA', 'SFO', 'JFK', 'DEN', 'ORD', 'LAX', 'ATL')
+    GROUP BY origin, destination
+  """)
+
+    // Mostrar los resultados
+    result.show()
+  }
+
 
 
 }
