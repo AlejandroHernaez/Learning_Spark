@@ -51,7 +51,7 @@ object App {
     // Una vez finalizado el procesamiento, detenemos la sesión de Spark para liberar recursos
 
     //--------------------------------------------------------------------------------------------
-    //val csvFile="""C:\Users\alejandro.hernaez\IdeaProjects\Learning_Spark\departuredelays.csv"""
+    //val csvFile="""C:\\Users\\alejandro.hernaez\\IdeaProjects\\Learning_Spark\\departuredelays.csv"""
 
     //T_4.ej1(spark, csvFile )  //VUELOS Y RETRASOS
 
@@ -67,7 +67,9 @@ object App {
 
     //T_5.ej2(spark)
 
-    T_5.ej3(spark)
+    //T_5.ej3(spark)
+
+    T_5.ej_windowing(spark)
 
 
 

@@ -81,10 +81,10 @@ object T_5 {
     // Mostrar resultados
     sql_query.show()
   }
-  def ej3(spark: SparkSession): Unit = {
+  /*def ej3(spark: SparkSession): Unit = {
     // Cargar los datos en un DataFrame (esto es solo un ejemplo)
     val departureDelays = spark.read.option("header", "true")
-      .csv("path_to_your_csv_file") // Cambia esta ruta por la de tus datos
+      .csv("") //
 
     // Crear vista temporal de departureDelays
     departureDelays.createOrReplaceTempView("departureDelays")
@@ -100,8 +100,29 @@ object T_5 {
 
     // Mostrar los resultados
     result.show()
+  }*/
+
+  def ej_windowing(spark: SparkSession): Unit = {
+
+    val csvCoches = "C:\\Users\\alejandro.hernaez\\IdeaProjects\\Learning_Spark\\COCHES.csv"
+    val df = Utils.csvAdf(spark,csvCoches)
+    df.createOrReplaceTempView("coches")
+    // leer csv , crear df con la funcion de Utils y crear vista temporal
+
+    spark.sql(
+      """
+        |SELECT name,
+        |       company,
+        |       power,
+        |       row_number() OVER (ORDER BY power DESC) AS row_number,
+        |       rank() OVER (ORDER BY power DESC) AS rank,
+        |       dense_rank() OVER (ORDER BY power DESC) AS dense_rank
+        |FROM coches
+        |""".stripMargin).show()
+
+
+
+
   }
-
-
 
 }
