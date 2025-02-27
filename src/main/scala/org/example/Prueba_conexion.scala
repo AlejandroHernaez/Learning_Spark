@@ -24,7 +24,7 @@ import java.util.Properties
         .jdbc(jdbcUrl, "console_games", dbProperties) // Cambia el nombre de la tabla
 
       // Mostrar los primeros registros
-      df.show(100)
+      df.show()
 
       // Detener la sesión de Spark
       spark.stop()
