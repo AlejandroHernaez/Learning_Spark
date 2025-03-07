@@ -1,6 +1,7 @@
 package org.example  // Define el paquete del programa para organizar el código
 
-import org.apache.spark.sql.SparkSession  // Importa SparkSession, la entrada principal para Spark
+import org.apache.spark.sql.SparkSession
+// Importa SparkSession, la entrada principal para Spark
 
 // Definimos el objeto `App`, que contiene la función principal del programa
 object App {
@@ -21,11 +22,11 @@ object App {
       .getOrCreate()*/
 
     // Ruta del archivo CSV que contiene los datos de los M&M
-   // val mnmFile = "C:\\Users\\alejandro.hernaez\\IdeaProjects\\Learning_Spark\\mnm_dataset.csv"
+   val mnmFile = "C:\\Users\\alejandro.hernaez\\IdeaProjects\\Learning_Spark\\mnm_dataset.csv"
     // NOTA: Se usa `\\` en Windows porque `\` es un carácter de escape en cadenas de texto en Scala
 
     // Llamamos a la función `ej_1` del objeto `MnMcount` para procesar los datos
-    //MnMcount.ej_1(spark, mnmFile)  // Ejecuta el análisis de conteo de M&M por color y estado
+    MnMcount.ej_1(spark, mnmFile)  // Ejecuta el análisis de conteo de M&M por color y estado
 
     //-------------------------------------------------------------------------------------------
 
@@ -35,7 +36,7 @@ object App {
     //-------------------------------------------------------------------------------------------
 
     //Llamada a función ej_2 T_3
-    //val jsonFile = args(0) // Ahora jsonFile está disponible fuera del if
+    //val jsonFile = args(0) //
 
     //T_3.ej2(spark, jsonFile)
 
@@ -50,13 +51,25 @@ object App {
     // Una vez finalizado el procesamiento, detenemos la sesión de Spark para liberar recursos
 
     //--------------------------------------------------------------------------------------------
-    //val csvFile="""C:\Users\alejandro.hernaez\IdeaProjects\Learning_Spark\departuredelays.csv"""
+    //val csvFile="""C:\\Users\\alejandro.hernaez\\IdeaProjects\\Learning_Spark\\departuredelays.csv"""
 
     //T_4.ej1(spark, csvFile )  //VUELOS Y RETRASOS
 
     //---------------------------------------------------------------------------------------------
 
-    T_5.ej1(spark)
+   //val file = """/databricks-datasets/learning-spark-v2/flights/summary-data/parquet/2010-summary.parquet"""
+
+    //T_4.ej2(spark, file )
+
+    //--------------------------------------------------------------------------------------------
+
+   // T_5.ej1(spark)
+
+    //T_5.ej2(spark)
+
+    //T_5.ej3(spark)
+
+    T_5.ej_windowing(spark)
 
 
 
